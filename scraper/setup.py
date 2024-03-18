@@ -1,6 +1,7 @@
 import os
+from web3   import Web3
 from dotenv import load_dotenv
 
 load_dotenv("../.env")
 
-def env(name): return os.environ.get(name)
+w3 = Web3(Web3.HTTPProvider(os.environ.get('RPC')))
