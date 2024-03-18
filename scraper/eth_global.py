@@ -1,6 +1,6 @@
-from web3 import Web3
+from setup import env
+from web3  import Web3
 
-RPC     = 'https://mainnet.infura.io/v3/d62b84418d9840c4911bbf30407ba7c8'
 ADDRESS = '0xD152f549545093347A162Dce210e7293f1452150'
 TX      = '0xdfe64868a256bfc7a2e4dc887983278b4801df9ffe0fc9989017ce1adb4521ba'
 
@@ -27,7 +27,7 @@ ABI = [
    }
 ]
 
-w3 = Web3(Web3.HTTPProvider(RPC))
+w3 = Web3(Web3.HTTPProvider(env('RPC')))
 
 contract   = w3.eth.contract(address=ADDRESS, abi=ABI)
 tx         = w3.eth.get_transaction(TX)
