@@ -1,4 +1,4 @@
-from web3 import Web3, EthereumTesterProvider
+from web3 import Web3
 
 RPC     = 'https://mainnet.infura.io/v3/d62b84418d9840c4911bbf30407ba7c8'
 ADDRESS = '0xD152f549545093347A162Dce210e7293f1452150'
