@@ -1,15 +1,13 @@
-from eth_global          import run as eth_global
-from eth_global_disperse import run as eth_global_disperse
+from eth_global          import run as get_recipients
+from eth_global_disperse import run as get_txs
 
-txs = eth_global_disperse()
+txs = get_txs()
 recipients = []
 
-for i, tx in enumerate(txs):
-    print(i, tx)
-    recipients.append(eth_global(tx))
-    # break
-    # if i == 2: break
+for i, tx in enumerate(txs): recipients.append(get_recipients(tx))
 
 # flatten the list
-# recipients = [item for sublist in recipients for item in sublist]
-# print(len(recipients))
+recipients = [item for sublist in recipients for item in sublist]
+
+print(recipients)
+print(len(recipients))

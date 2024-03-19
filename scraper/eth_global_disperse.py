@@ -14,12 +14,12 @@ params = {
     "apikey":  ETHERSCAN
 }
 
-def run():
-    if not CACHED:
+def run(cached=CACHED):
+    if not cached:
         response = requests.get(ETHERSCAN_API, params=params).json()
         txs = response["result"]
         txs = [tx['hash'] for tx in txs if tx["to"].lower() == DISPERSE.lower()]
         cache(CACHED_FILE, txs)
         return txs
 
-    if CACHED: return load(CACHED_FILE)
+    if cached: return load(CACHED_FILE)

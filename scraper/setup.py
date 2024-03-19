@@ -4,7 +4,7 @@ from dotenv import load_dotenv
 
 load_dotenv("../.env")
 
-CACHED        = False
+CACHED        = True
 DIR           = os.path.dirname(os.path.realpath(__file__))
 CACHE         = DIR + "/.cache"
 RPC           = os.environ.get('RPC')
