@@ -6,11 +6,7 @@ CACHED_FILE = "eth_global.pkl"
 ADDRESS = '0xD152f549545093347A162Dce210e7293f1452150'
 TX      = '0xdfe64868a256bfc7a2e4dc887983278b4801df9ffe0fc9989017ce1adb4521ba'
 
-ABI = [
-   {
-      "constant":False,
-      "inputs":[
-         {
+ABI = [{"inputs": [{
             "name":"recipients",
             "type":"address[]"
          },
@@ -20,11 +16,6 @@ ABI = [
          }
       ],
       "name":"disperseEther",
-      "outputs":[
-         
-      ],
-      "payable":True,
-      "stateMutability":"payable",
       "type":"function"
    }
 ]
