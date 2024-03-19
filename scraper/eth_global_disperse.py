@@ -8,16 +8,16 @@ ADDRESS  = '0xba17eeb3f0413b76184ba8ed73067063fba6e2eb'
 DISPERSE = '0xD152f549545093347A162Dce210e7293f1452150'
 
 params = {
-    "module": "account",
-    "action": "txlist",
+    "module":  "account",
+    "action":  "txlist",
     "address": ADDRESS,
-    "apikey": ETHERSCAN
+    "apikey":  ETHERSCAN
 }
 
 if not CACHED:
-    response = requests.get(ETHERSCAN_API, params=params)
+    response = requests.get(ETHERSCAN_API, params=params).json()
     with open(CACHED_FILE, "wb") as f:
-        pickle.dump(response.json(), f)
+        pickle.dump(response, f)
 
 if CACHED:
     with open(CACHED_FILE, "rb") as f:
