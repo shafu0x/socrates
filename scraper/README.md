@@ -16,3 +16,4 @@ source venv/bin/activate
 - Home DAO
 - Jessys Hackerhouse
 - People I follow on X
+- Auditors (Code4Arena)
