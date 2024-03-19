@@ -5,10 +5,11 @@ txs = eth_global_disperse()
 recipients = []
 
 for i, tx in enumerate(txs):
-    print(i)
+    print(i, tx)
     recipients.append(eth_global(tx))
-    if i == 2: break
+    # break
+    # if i == 2: break
 
 # flatten the list
-recipients = [item for sublist in recipients for item in sublist]
-print(len(recipients))
+# recipients = [item for sublist in recipients for item in sublist]
+# print(len(recipients))

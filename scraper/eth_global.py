@@ -1,11 +1,62 @@
 from setup import *
 from cache import *
 
-CACHED_FILE = "eth_global.pkl"
 
 ADDRESS = '0xD152f549545093347A162Dce210e7293f1452150'
 
-ABI = [{"inputs": [{
+ABI = [
+   {
+      "constant":False,
+      "inputs":[
+         {
+            "name":"token",
+            "type":"address"
+         },
+         {
+            "name":"recipients",
+            "type":"address[]"
+         },
+         {
+            "name":"values",
+            "type":"uint256[]"
+         }
+      ],
+      "name":"disperseTokenSimple",
+      "outputs":[
+         
+      ],
+      "payable":False,
+      "stateMutability":"nonpayable",
+      "type":"function"
+   },
+   {
+      "constant":False,
+      "inputs":[
+         {
+            "name":"token",
+            "type":"address"
+         },
+         {
+            "name":"recipients",
+            "type":"address[]"
+         },
+         {
+            "name":"values",
+            "type":"uint256[]"
+         }
+      ],
+      "name":"disperseToken",
+      "outputs":[
+         
+      ],
+      "payable":False,
+      "stateMutability":"nonpayable",
+      "type":"function"
+   },
+   {
+      "constant":False,
+      "inputs":[
+         {
             "name":"recipients",
             "type":"address[]"
          },
@@ -15,11 +66,18 @@ ABI = [{"inputs": [{
          }
       ],
       "name":"disperseEther",
+      "outputs":[
+         
+      ],
+      "payable":True,
+      "stateMutability":"payable",
       "type":"function"
    }
 ]
 
 def run(tx):
+    CACHED_FILE = f'eth_global_{tx}.pkl'
+
     if not CACHED:
         contract   = w3.eth.contract(address=ADDRESS, abi=ABI)
         tx         = w3.eth.get_transaction(tx)
