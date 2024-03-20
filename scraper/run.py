@@ -1,13 +1,15 @@
+import pandas as pd
+from setup               import Type
 from eth_global          import run as get_recipients
 from eth_global_disperse import run as get_txs
 
 txs = get_txs()
 recipients = []
 
-for i, tx in enumerate(txs): recipients.append(get_recipients(tx))
+for tx in txs: recipients.append(get_recipients(tx))
 
-# flatten the list
-recipients = [item for sublist in recipients for item in sublist]
+recipients = set([item for _ in recipients for item in _])
 
-print(recipients)
-print(len(recipients))
+df = pd.DataFrame(recipients, columns=['address'])
+df['type'] = Type.ETH_GLOBAL.value
+df.to_csv('eth_global.csv', index=False)

@@ -1,6 +1,7 @@
 import os
 from web3   import Web3
 from dotenv import load_dotenv
+from enum   import Enum
 
 load_dotenv("../.env")
 
@@ -14,3 +15,7 @@ ETHERSCAN_API = "https://api.etherscan.io/api"
 w3 = Web3(Web3.HTTPProvider(RPC))
 
 if not os.path.exists(CACHE): os.makedirs(CACHE)
+
+class Type(Enum):
+    ETH_GLOBAL   = 0
+    THE_BYTECODE = 1
